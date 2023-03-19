@@ -28,7 +28,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  
 }
 
 h1 {
@@ -53,6 +53,17 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+header {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.link_text {
+  font-size: 32px;
+  color: #0914eb;
+  padding-right: 50px;
 }
 
 @media (prefers-color-scheme: light) {
