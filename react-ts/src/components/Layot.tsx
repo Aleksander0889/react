@@ -12,7 +12,9 @@ function Layout() {
         </Link>
       </header>
       <Outlet />
-      <footer>2023</footer>
+      <footer>
+        <p className="text">2023</p>
+      </footer>
     </>
   );
 }

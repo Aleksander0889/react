@@ -1,5 +1,9 @@
 function About() {
-  return <h1>PAGE ABOUT US</h1>;
+  return (
+    <main>
+      <h1>PAGE ABOUT US</h1>
+    </main>
+  );
 }
 
 export default About;
