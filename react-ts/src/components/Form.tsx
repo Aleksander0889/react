@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form'
 type FormData = {
   UseName: string;
   ref: any;
-  register:string;
+  register: HTMLElement;
 };
 
 const NameForm = ()  => {
-  const { register, handleSubmit, errors} = useForm<FormData>(
+  const { handleSubmit} = useForm<FormData>(
   {mode: "onBlur"})
 
    const onSubmit = (data) => {
@@ -17,7 +17,8 @@ const NameForm = ()  => {
 
  
     return (
-      <form  noValidate onSubmit={handleSubmit(onSubmit)}>
+      <form  noValidate onSubmit={handleSubmit(onSubmit)}
+      className="form_submit">
         <label>
           Name:
           <input 
