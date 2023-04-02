@@ -11,7 +11,7 @@ function Layout() {
           About Us
         </Link>
       </header>
-      <Outlet />
+       <Outlet />
       <footer>
         <p className="text">2023</p>
       </footer>

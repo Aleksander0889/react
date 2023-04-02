@@ -1,60 +1,73 @@
 import React from 'react';
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
-type FormData = {
-  UseName: string;
-  ref: any;
-  register: HTMLElement;
-};
+const schema = yup
+  .object()
+  .shape({
+    name: yup.string().required(),
+    age: yup.number().required(),
+    countries: yup.string().required(),
+    is_going: yup.boolean().required(),
+    faile: yup.mixed().required(),
+     });
 
-const NameForm = ()  => {
-  const { handleSubmit} = useForm<FormData>(
-  {mode: "onBlur"})
+function NameForm() {
+  const { register, handleSubmit,  } = useForm({
+   resolver: yupResolver(schema)
+  });
 
-   const onSubmit = (data) => {
-    console.log(data)
-   }
+   const submitForm = (data) => {
+    console.log(data);
+   };
 
  
     return (
-      <form  noValidate onSubmit={handleSubmit(onSubmit)}
-      className="form_submit">
+      <form noValidate onSubmit={handleSubmit(submitForm)}
+        className="form_submit">
         <label>
           Name:
-          <input 
-          readOnly
-          defaultValue={""}
-          id='name'
-          name='useName' 
-          type="text"
-          />
+          <input
+           type="text"
+            {...register('name')} />
+            
         </label>
-        <input type="submit" 
-        />
         <label>
           Data:
-          <input name='UseAge' type="number"  />
+          <input
+            type="number"
+            {...register('age')} />
         </label>
         <label>
-           Your countre:
-          <select  name="cantre" >
-            <option >Belarus</option>
-            <option >Rusha</option>
-            <option >Europ</option>
-            <option >America</option>
+          Your countre:
+          <select 
+          {...register('countries')}
+          name="countries"
+          >
+            <option>Belarus</option>
+            <option>Rusha</option>
+            <option>Europ</option>
+            <option>America</option>
           </select>
         </label>
         <label>
-        I consent to my personal data
+          I consent to my personal data
           <input
-            name="isGoing"
             type="checkbox"
+            {...register('is_going')}
             />
-        </label>    
+        </label>
         <label>
           Fale:
-        <input type="file" />
+          <input type="file"
+            {...register('faile')}
+            />
         </label>
+
+        <input type="submit" 
+        id="submit"
+        />
       </form>
     );
     }

@@ -3,7 +3,7 @@ import About from './pages/About Us';
 import Layout from './components/Layot';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import { DataProvider } from './components/DataContext';
+// import { DataProvider } from './components/DataContext';
 
 
 export function App() {
@@ -19,8 +19,7 @@ export function App() {
 }
 export function WrappedApp() {
   return (
-    <HashRouter>
-      
+    <HashRouter>      
       <App />
       
     </HashRouter>

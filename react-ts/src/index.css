@@ -24,6 +24,7 @@ a:hover {
 }
 
 body {
+  margin-top: 50px;
   margin-bottom: 0px;
   margin-left: 0px;
   display: flex;
@@ -34,7 +35,7 @@ body {
   
 }
   main {
-    padding-left: 100px;
+        padding-left: 100px;
      }
 
 h1 {
@@ -136,7 +137,9 @@ footer {
   width: 500px;
   display: flex;
   flex-direction: column;
+  background-color: #c1c1db;
 }
+
  label {
   margin-top: 20px;
  }
