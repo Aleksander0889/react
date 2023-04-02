@@ -3,6 +3,8 @@ import About from './pages/About Us';
 import Layout from './components/Layot';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import { DataProvider } from './components/DataContext';
+
 
 export function App() {
   return (
@@ -18,7 +20,9 @@ export function App() {
 export function WrappedApp() {
   return (
     <HashRouter>
+      
       <App />
+      
     </HashRouter>
   );
 }

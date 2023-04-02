@@ -34,6 +34,7 @@ module.exports = {
     'react/display-name': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'react/destructuring-assignment': ['<enabled>', 'always'],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/ban-ts-comment': 'error',
     '@typescript-eslint/no-non-null-assertion': 'off',
