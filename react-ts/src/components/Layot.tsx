@@ -4,11 +4,15 @@ function Layout() {
   return (
     <>
       <header className="header">
+        <div className="logo_text"><a>ArtBioTech</a></div>
         <Link to="/" className="link_text">
-          HOME
+          Products
         </Link>
         <Link to="about" className="link_text">
           About Us
+        </Link>
+        <Link to="form" className="link_text">
+          Sign in
         </Link>
       </header>
        <Outlet />

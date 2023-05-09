@@ -10,7 +10,10 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@hookform/resolvers": "^3.0.0",
+    "@mui/material": "^5.12.2",
     "@types/react-router": "^5.1.20",
     "@types/yup": "^0.32.0",
     "ajv": "^6.0.0",

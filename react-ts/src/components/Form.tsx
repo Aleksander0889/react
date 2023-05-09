@@ -1,78 +1,68 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useRef, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import MyButton from './button/MyButton';
+import MyInput from './input/MyInput';
+import Switch from '@mui/material/Switch/Switch';
+import classes from './MyForm.module.css';
+import MyModal from '../components/Modal/MyModal';
 
-const schema = yup
-  .object()
-  .shape({
-    name: yup.string().required(),
-    age: yup.number().required(),
-    countries: yup.string().required(),
-    is_going: yup.boolean().required(),
-    faile: yup.mixed().required(),
-     });
+type Inputs = {
+  name: string;
+  surname: string;
+  age: string;
+  check: boolean;
+  switch: boolean;
+  files: string;  
+};
 
-function NameForm() {
-  const { register, handleSubmit,  } = useForm({
-   resolver: yupResolver(schema)
+export const schema = yup.object().shape({
+  namePerson: yup.string().required(),
+  surname: yup.string().required(),
+  age: yup.number().required(),
+  check: yup.boolean().required(),
+  files: yup.mixed().required(),
+}).required();
+
+const NameForm: React.FC = () => {
+  const { register, handleSubmit, control } = useForm<Inputs>({
+    resolver: yupResolver(schema), // yup, joi and even your own.
   });
 
-   const submitForm = (data) => {
-    console.log(data);
-   };
+  const [modal, setModal] = useState(false)
 
- 
-    return (
-      <form noValidate onSubmit={handleSubmit(submitForm)}
-        className="form_submit">
-        <label>
-          Name:
-          <input
-           type="text"
-            {...register('name')} />
-            
-        </label>
-        <label>
-          Data:
-          <input
-            type="number"
-            {...register('age')} />
-        </label>
-        <label>
-          Your countre:
-          <select 
-          {...register('countries')}
-          name="countries"
-          >
-            <option>Belarus</option>
-            <option>Rusha</option>
-            <option>Europ</option>
-            <option>America</option>
-          </select>
-        </label>
-        <label>
-          I consent to my personal data
-          <input
-            type="checkbox"
-            {...register('is_going')}
-            />
-        </label>
-        <label>
-          Fale:
-          <input type="file"
-            {...register('faile')}
-            />
-        </label>
+  return (
+    <>
+    <MyButton onClick={() => setModal(true)}> Создать пользователя</MyButton>
+    <MyModal visible={modal} setVisible={setModal}> <form
+      className={classes.myForm}
+      onSubmit={handleSubmit(d => console.log(d))}>
+      <label>Name
+        <input {...register("name")} />
+      </label>
+      <label>Subname
+        <input {...register("surname")} />
+      </label>
+      <label>Birthday
+        <input type="number" {...register("age")} />
+      </label>
+      <label>I consent to my personal data
+        <input type="checkbox" {...register("check")} />
+      </label>
+      <label>MUI Switch</label>
+      <Controller
+        name="switch"
+        control={control}
+        render={({ field }) => <Switch {...field} />} />
+      <input type="file" multiple {...register("files")} />
+      <MyButton>Зарегистрироваться</MyButton>
+    </form></MyModal>
+    </>
+  );
+};
 
-        <input type="submit" 
-        id="submit"
-        />
-      </form>
-    );
-    }
-
-export default NameForm
+export default NameForm;
 
 
 

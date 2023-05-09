@@ -1,0 +1,24 @@
+
+.MyFilters {
+    width: 400px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+   
+
+    
+    
+}
+
+.filterWrapper {
+    display: flex;    
+    justify-content:start;
+    align-items: center;
+    
+}
+
+.inputFilter {
+   width: 20px; 
+   
+}

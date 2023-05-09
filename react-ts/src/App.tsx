@@ -3,6 +3,8 @@ import About from './pages/About Us';
 import Layout from './components/Layot';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import FormPage from './pages/FormPage';
+
 // import { DataProvider } from './components/DataContext';
 
 
@@ -12,6 +14,7 @@ export function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="form" element={<FormPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
